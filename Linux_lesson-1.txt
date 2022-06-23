@@ -1,0 +1,15 @@
+yago@yago-VirtualBox:~$ uname
+Linux
+yago@yago-VirtualBox:~$ uname -a
+Linux yago-VirtualBox 5.13.0-41-generic #46~20.04.1-Ubuntu SMP Wed Apr 20 13:16:21 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+yago@yago-VirtualBox:~$ hostnamectl
+   Static hostname: yago-VirtualBox
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: b73fdcc20e3f4728bd6c66475975cfd6
+           Boot ID: 5bf6e02bb0f340fb8ea35c452940cf17
+    Virtualization: oracle
+  Operating System: Ubuntu 20.04.4 LTS
+            Kernel: Linux 5.13.0-41-generic
+      Architecture: x86-64
+yago@yago-VirtualBox:~$ 

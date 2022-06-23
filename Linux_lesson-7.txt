@@ -1,0 +1,180 @@
+yago@yago-VirtualBox:~$ sudo wget https://nginx.org/keys/nginx_signing.key
+--2022-06-20 13:36:28--  https://nginx.org/keys/nginx_signing.key
+Распознаётся nginx.org (nginx.org)… 2a05:d014:edb:5702::6, 2a05:d014:edb:5704::6, 52.58.199.22, ...
+Подключение к nginx.org (nginx.org)|2a05:d014:edb:5702::6|:443... ошибка: Время ожидания соединения истекло.
+Подключение к nginx.org (nginx.org)|2a05:d014:edb:5704::6|:443... ошибка: Время ожидания соединения истекло.
+Подключение к nginx.org (nginx.org)|52.58.199.22|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 1561 (1,5K) [application/octet-stream]
+Сохранение в: «nginx_signing.key»
+
+nginx_signing.key                   100%[=================================================================>]   1,52K  --.-KB/s    за 0s      
+
+2022-06-20 13:40:49 (68,2 MB/s) - «nginx_signing.key» сохранён [1561/1561]
+
+yago@yago-VirtualBox:~$ sudo apt-key add nginx_signing.key
+OK
+yago@yago-VirtualBox:~$ sudo nano /etc/apt/sources.list
+yago@yago-VirtualBox:~$ sudo apt-get update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease                                                            
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease                                                          
+Сущ:4 http://security.ubuntu.com/ubuntu focal-security InRelease                                                             
+Игн:5 https://nginx.org/packages/mainline/debian focal InRelease                                      
+Ошб:6 https://nginx.org/packages/mainline/debian focal Release
+  404  Not Found [IP: 3.125.197.172 443]
+Чтение списков пакетов… Готово
+E: Репозиторий «https://nginx.org/packages/mainline/debian focal Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+yago@yago-VirtualBox:~$ sudo apt-gat install nginx
+sudo: apt-gat: команда не найдена
+yago@yago-VirtualBox:~$ sudo apt-get install nginx
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Следующий пакет устанавливался автоматически и больше не требуется:
+  libfwupdplugin1
+Для его удаления используйте «sudo apt autoremove».
+Будут установлены следующие дополнительные пакеты:
+  libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream nginx-common nginx-core
+Предлагаемые пакеты:
+  fcgiwrap nginx-doc
+Следующие НОВЫЕ пакеты будут установлены:
+  libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream nginx nginx-common nginx-core
+Обновлено 0 пакетов, установлено 7 новых пакетов, для удаления отмечено 0 пакетов, и 12 пакетов не обновлено.
+Необходимо скачать 605 kB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 2 134 kB.
+Хотите продолжить? [Д/н] y
+Пол:1 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 nginx-common all 1.18.0-0ubuntu1.3 [37,7 kB]
+Пол:2 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 libnginx-mod-http-image-filter amd64 1.18.0-0ubuntu1.3 [14,8 kB]
+Пол:3 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 libnginx-mod-http-xslt-filter amd64 1.18.0-0ubuntu1.3 [13,0 kB]
+Пол:4 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 libnginx-mod-mail amd64 1.18.0-0ubuntu1.3 [42,8 kB]
+Пол:5 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 libnginx-mod-stream amd64 1.18.0-0ubuntu1.3 [67,3 kB]
+Пол:6 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 nginx-core amd64 1.18.0-0ubuntu1.3 [425 kB]
+Пол:7 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 nginx all 1.18.0-0ubuntu1.3 [3 620 B]
+Получено 605 kB за 6с (106 kB/s)
+Предварительная настройка пакетов …
+Выбор ранее не выбранного пакета nginx-common.
+(Чтение базы данных … на данный момент установлено 195726 файлов и каталогов.)
+Подготовка к распаковке …/0-nginx-common_1.18.0-0ubuntu1.3_all.deb …
+Распаковывается nginx-common (1.18.0-0ubuntu1.3) …
+Выбор ранее не выбранного пакета libnginx-mod-http-image-filter.
+Подготовка к распаковке …/1-libnginx-mod-http-image-filter_1.18.0-0ubuntu1.3_amd64.deb …
+Распаковывается libnginx-mod-http-image-filter (1.18.0-0ubuntu1.3) …
+Выбор ранее не выбранного пакета libnginx-mod-http-xslt-filter.
+Подготовка к распаковке …/2-libnginx-mod-http-xslt-filter_1.18.0-0ubuntu1.3_amd64.deb …
+Распаковывается libnginx-mod-http-xslt-filter (1.18.0-0ubuntu1.3) …
+Выбор ранее не выбранного пакета libnginx-mod-mail.
+Подготовка к распаковке …/3-libnginx-mod-mail_1.18.0-0ubuntu1.3_amd64.deb …
+Распаковывается libnginx-mod-mail (1.18.0-0ubuntu1.3) …
+Выбор ранее не выбранного пакета libnginx-mod-stream.
+Подготовка к распаковке …/4-libnginx-mod-stream_1.18.0-0ubuntu1.3_amd64.deb …
+Распаковывается libnginx-mod-stream (1.18.0-0ubuntu1.3) …
+Выбор ранее не выбранного пакета nginx-core.
+Подготовка к распаковке …/5-nginx-core_1.18.0-0ubuntu1.3_amd64.deb …
+Распаковывается nginx-core (1.18.0-0ubuntu1.3) …
+Выбор ранее не выбранного пакета nginx.
+Подготовка к распаковке …/6-nginx_1.18.0-0ubuntu1.3_all.deb …
+Распаковывается nginx (1.18.0-0ubuntu1.3) …
+Настраивается пакет nginx-common (1.18.0-0ubuntu1.3) …
+Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /lib/systemd/system/nginx.service.
+Настраивается пакет libnginx-mod-http-xslt-filter (1.18.0-0ubuntu1.3) …
+Настраивается пакет libnginx-mod-mail (1.18.0-0ubuntu1.3) …
+Настраивается пакет libnginx-mod-http-image-filter (1.18.0-0ubuntu1.3) …
+Настраивается пакет libnginx-mod-stream (1.18.0-0ubuntu1.3) …
+Настраивается пакет nginx-core (1.18.0-0ubuntu1.3) …
+Настраивается пакет nginx (1.18.0-0ubuntu1.3) …
+Обрабатываются триггеры для systemd (245.4-4ubuntu3.17) …
+Обрабатываются триггеры для man-db (2.9.1-1) …
+Обрабатываются триггеры для ufw (0.36-6ubuntu1) …
+yago@yago-VirtualBox:~$ sudo systemctl status nginx.service
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2022-06-20 14:11:31 MSK; 2min 48s ago
+       Docs: man:nginx(8)
+   Main PID: 4555 (nginx)
+      Tasks: 3 (limit: 2289)
+     Memory: 4.9M
+     CGroup: /system.slice/nginx.service
+             ├─4555 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+             ├─4556 nginx: worker process
+             └─4557 nginx: worker process
+
+июн 20 14:11:31 yago-VirtualBox systemd[1]: Starting A high performance web server and a reverse proxy server...
+июн 20 14:11:31 yago-VirtualBox systemd[1]: Started A high performance web server and a reverse proxy server.
+yago@yago-VirtualBox:~$ sudo systemctl stop nginx.service
+yago@yago-VirtualBox:~$ sudo dbkg --remove nginx
+sudo: dbkg: команда не найдена
+yago@yago-VirtualBox:~$ sudo dpkg --remove nginx
+(Чтение базы данных … на данный момент установлено 195804 файла и каталога.)
+Удаляется nginx (1.18.0-0ubuntu1.3) …
+yago@yago-VirtualBox:~$ sudo dpkg --remove nginx-core
+(Чтение базы данных … на данный момент установлен 195801 файл и каталог.)
+Удаляется nginx-core (1.18.0-0ubuntu1.3) …
+Обрабатываются триггеры для man-db (2.9.1-1) …
+---------------------------------------------------------------------------------------
+
+yago@yago-VirtualBox:~$ snap find firefox
+Название              Версия         Издатель      Примечание  Описание
+firefox               101.0.1-1      mozilla✓      -           Mozilla Firefox web browser
+firefox-kiosk         0.1            scout208      -           firefox example kiosk
+red-app               8.0            keshavnrj     -           Complete Youtube Desktop Applications
+dashkiosk             v2.7.3         ogra          -           Drive a set of screens displaying dashboards
+orange-app            6.0            keshavnrj     -           Complete SoundCloud Desktop Applications
+google-chat-electron  2.16.1         ankurk91      -           Unofficial desktop app for Google Chat.
+joplin-arnatious      1.0.224        arnatious     -           Joplin is a free, open source note taking and to-do application.
+downloadaccelerator   3.0            messey-bilal  -           A free tool to download files.
+tncc-script           0+git.4192108  guilhem       -           wrapper for openconnect and pulse
+yago@yago-VirtualBox:~$ sudo snap install firefox
+firefox 101.0.1-1 от Mozilla✓ установлен
+yago@yago-VirtualBox:~$ firefox
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+yago@yago-VirtualBox:~$ 
+
+----------------------------------------------------------------------------------------
+
+yago@yago-VirtualBox:~$ sudo ufw status
+Состояние: неактивен
+yago@yago-VirtualBox:~$ sudo ufw allow 22
+Правила обновлены
+Правила обновлены (v6)
+yago@yago-VirtualBox:~$ sudo ufw allow 80
+Правила обновлены
+Правила обновлены (v6)
+yago@yago-VirtualBox:~$ sudo ufw enable
+Межсетевой экран включён и будет запускаться при запуске системы
+yago@yago-VirtualBox:~$ sudo ufw status
+Состояние: активен
+
+В                          Действие    Из
+-                          --------    --
+22                         ALLOW       Anywhere                  
+80                         ALLOW       Anywhere                  
+22 (v6)                    ALLOW       Anywhere (v6)             
+80 (v6)                    ALLOW       Anywhere (v6)             
+
+yago@yago-VirtualBox:~$ 
+------------------------------------------------------------------------------------------------
+
+yago@yago-VirtualBox:~$ sudo sysctl -w net.ipv4.ip_forward=1
+net.ipv4.ip_forward = 1
+yago@yago-VirtualBox:~$ sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+yago@yago-VirtualBox:~$ sudo iptables -t nat -L
+Chain PREROUTING (policy ACCEPT)
+target     prot opt source               destination         
+REDIRECT   tcp  --  anywhere             anywhere             tcp dpt:http redir ports 8080
+
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain POSTROUTING (policy ACCEPT)
+target     prot opt source               destination         
+yago@yago-VirtualBox:~$ 
+
+ 
+

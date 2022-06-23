@@ -1,0 +1,145 @@
+yago@yago-VirtualBox:~$ mkdir lesson5
+yago@yago-VirtualBox:~$ cd lesson5
+yago@yago-VirtualBox:~/lesson5$ echo home work > file1
+yago@yago-VirtualBox:~/lesson5$ ll
+итого 12
+drwxrwxr-x  2 yago yago 4096 июн 13 17:39 ./
+drwxr-xr-x 19 yago yago 4096 июн 13 17:34 ../
+-rw-rw-r--  1 yago yago   10 июн 13 17:39 file1
+yago@yago-VirtualBox:~/lesson5$ cat file1 
+home work
+yago@yago-VirtualBox:~/lesson5$ cp file1 file2
+yago@yago-VirtualBox:~/lesson5$ ll
+итого 16
+drwxrwxr-x  2 yago yago 4096 июн 13 17:42 ./
+drwxr-xr-x 19 yago yago 4096 июн 13 17:34 ../
+-rw-rw-r--  1 yago yago   10 июн 13 17:39 file1
+-rw-rw-r--  1 yago yago   10 июн 13 17:42 file2
+yago@yago-VirtualBox:~/lesson5$ ln -s file1 file3
+yago@yago-VirtualBox:~/lesson5$ ll
+итого 16
+drwxrwxr-x  2 yago yago 4096 июн 13 17:44 ./
+drwxr-xr-x 19 yago yago 4096 июн 13 17:34 ../
+-rw-rw-r--  1 yago yago   10 июн 13 17:39 file1
+-rw-rw-r--  1 yago yago   10 июн 13 17:42 file2
+lrwxrwxrwx  1 yago yago    5 июн 13 17:44 file3 -> file1
+yago@yago-VirtualBox:~/lesson5$ ln file1 file4
+yago@yago-VirtualBox:~/lesson5$ ll
+итого 20
+drwxrwxr-x  2 yago yago 4096 июн 13 17:46 ./
+drwxr-xr-x 19 yago yago 4096 июн 13 17:34 ../
+-rw-rw-r--  2 yago yago   10 июн 13 17:39 file1
+-rw-rw-r--  1 yago yago   10 июн 13 17:42 file2
+lrwxrwxrwx  1 yago yago    5 июн 13 17:44 file3 -> file1
+-rw-rw-r--  2 yago yago   10 июн 13 17:39 file4
+yago@yago-VirtualBox:~/lesson5$ ls -il
+итого 12
+659860 -rw-rw-r-- 2 yago yago 10 июн 13 17:39 file1
+683432 -rw-rw-r-- 1 yago yago 10 июн 13 17:42 file2
+683433 lrwxrwxrwx 1 yago yago  5 июн 13 17:44 file3 -> file1
+659860 -rw-rw-r-- 2 yago yago 10 июн 13 17:39 file4
+yago@yago-VirtualBox:~/lesson5$ rm file1
+yago@yago-VirtualBox:~/lesson5$ ll
+итого 16
+drwxrwxr-x  2 yago yago 4096 июн 13 17:54 ./
+drwxr-xr-x 19 yago yago 4096 июн 13 17:34 ../
+-rw-rw-r--  1 yago yago   10 июн 13 17:42 file2
+lrwxrwxrwx  1 yago yago    5 июн 13 17:44 file3 -> file1
+-rw-rw-r--  1 yago yago   10 июн 13 17:39 file4
+yago@yago-VirtualBox:~/lesson5$ # мягкая ссылка(символическая ссылка) сломалась, так как она ссылается на file1, а file4 мы можем прочитать содержимое так как она была жесткой ссылкойyago@yago-VirtualBox:~/lesson5$ cat file2
+home work
+yago@yago-VirtualBox:~/lesson5$ cat file3
+cat: file3: Нет такого файла или каталога
+yago@yago-VirtualBox:~/lesson5$ # не можем прочитать
+yago@yago-VirtualBox:~/lesson5$ cat file4
+home work
+yago@yago-VirtualBox:~/lesson5$ 
+yago@yago-VirtualBox:~/lesson5$ # 2-------------------------------
+yago@yago-VirtualBox:~/lesson5$ 
+yago@yago-VirtualBox:~/lesson5$ ll
+итого 16
+drwxrwxr-x  2 yago yago 4096 июн 13 17:54 ./
+drwxr-xr-x 19 yago yago 4096 июн 13 17:34 ../
+-rw-rw-r--  1 yago yago   10 июн 13 17:42 file2
+lrwxrwxrwx  1 yago yago    5 июн 13 17:44 file3 -> file1
+-rw-rw-r--  1 yago yago   10 июн 13 17:39 file4
+yago@yago-VirtualBox:~/lesson5$ mv file2 newfile2
+yago@yago-VirtualBox:~/lesson5$ mv file4 newfile4
+yago@yago-VirtualBox:~/lesson5$ ll
+итого 16
+drwxrwxr-x  2 yago yago 4096 июн 13 18:23 ./
+drwxr-xr-x 19 yago yago 4096 июн 13 17:34 ../
+lrwxrwxrwx  1 yago yago    5 июн 13 17:44 file3 -> file1
+-rw-rw-r--  1 yago yago   10 июн 13 17:42 newfile2
+-rw-rw-r--  1 yago yago   10 июн 13 17:39 newfile4
+yago@yago-VirtualBox:~/lesson5$ ls -s newfile2 link_f2
+ls: невозможно получить доступ к 'link_f2': Нет такого файла или каталога
+4 newfile2
+yago@yago-VirtualBox:~/lesson5$ ln -s newfile2 link_f2
+yago@yago-VirtualBox:~/lesson5$ ln -s newfile4 link_f4
+yago@yago-VirtualBox:~/lesson5$ ll
+итого 16
+drwxrwxr-x  2 yago yago 4096 июн 13 18:26 ./
+drwxr-xr-x 19 yago yago 4096 июн 13 17:34 ../
+lrwxrwxrwx  1 yago yago    5 июн 13 17:44 file3 -> file1
+lrwxrwxrwx  1 yago yago    8 июн 13 18:26 link_f2 -> newfile2
+lrwxrwxrwx  1 yago yago    8 июн 13 18:26 link_f4 -> newfile4
+-rw-rw-r--  1 yago yago   10 июн 13 17:42 newfile2
+-rw-rw-r--  1 yago yago   10 июн 13 17:39 newfile4
+yago@yago-VirtualBox:~/lesson5$ mkdir links
+yago@yago-VirtualBox:~/lesson5$ mv link*
+yago@yago-VirtualBox:~/lesson5$ ll
+итого 20
+drwxrwxr-x  3 yago yago 4096 июн 13 18:28 ./
+drwxr-xr-x 19 yago yago 4096 июн 13 17:34 ../
+lrwxrwxrwx  1 yago yago    5 июн 13 17:44 file3 -> file1
+drwxrwxr-x  2 yago yago 4096 июн 13 18:28 links/
+-rw-rw-r--  1 yago yago   10 июн 13 17:42 newfile2
+-rw-rw-r--  1 yago yago   10 июн 13 17:39 newfile4
+yago@yago-VirtualBox:~/lesson5$ cd links/
+yago@yago-VirtualBox:~/lesson5/links$ ll
+итого 8
+drwxrwxr-x 2 yago yago 4096 июн 13 18:28 ./
+drwxrwxr-x 3 yago yago 4096 июн 13 18:28 ../
+lrwxrwxrwx 1 yago yago    8 июн 13 18:26 link_f2 -> newfile2
+lrwxrwxrwx 1 yago yago    8 июн 13 18:26 link_f4 -> newfile4
+yago@yago-VirtualBox:~/lesson5/links$
+yago@yago-VirtualBox:~/lesson5/links$ cd ..
+ yago@yago-VirtualBox:~/lesson5$ cd links
+ yago@yago-VirtualBox:~/lesson5/links$ rm link*
+yago@yago-VirtualBox:~/lesson5/links$ ll
+итого 8
+drwxrwxr-x 2 yago yago 4096 июн 13 18:44 ./
+drwxrwxr-x 3 yago yago 4096 июн 13 18:43 ../
+yago@yago-VirtualBox:~/lesson5/links$ cd ..
+ago@yago-VirtualBox:~/lesson5$ ll
+итого 12
+drwxrwxr-x  3 yago yago 4096 июн 13 18:43 ./
+drwxr-xr-x 19 yago yago 4096 июн 13 17:34 ../
+drwxrwxr-x  2 yago yago 4096 июн 13 18:44 links/
+ago@yago-VirtualBox:~/lesson5$ # 3-------------------------------
+yago@yago-VirtualBox:~/lesson5$ touch file1 file2
+yago@yago-VirtualBox:~/lesson5$ ll
+итого 12
+drwxrwxr-x  3 yago yago 4096 июн 13 18:49 ./
+drwxr-xr-x 19 yago yago 4096 июн 13 17:34 ../
+-rw-rw-r--  1 yago yago    0 июн 13 18:49 file1
+-rw-rw-r--  1 yago yago    0 июн 13 18:49 file2
+drwxrwxr-x  2 yago yago 4096 июн 13 18:44 links/
+yago@yago-VirtualBox:~/lesson5$ ls -l
+итого 4
+-rw-rw-r-- 1 yago yago    0 июн 13 18:49 file1
+-rw-rw-r-- 1 yago yago    0 июн 13 18:49 file2
+drwxrwxr-x 2 yago yago 4096 июн 13 18:44 links
+yago@yago-VirtualBox:~/lesson5$ chmod go-rw file2
+yago@yago-VirtualBox:~/lesson5$ ls -l
+итого 4
+-rw-rw-r-- 1 yago yago    0 июн 13 18:49 file1
+-rw------- 1 yago yago    0 июн 13 18:49 file2
+drwxrwxr-x 2 yago yago 4096 июн 13 18:44 links
+yago@yago-VirtualBox:~/lesson5$ 
+
+
+
+
+

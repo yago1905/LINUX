@@ -1,0 +1,171 @@
+----------------------------1 Подключить репозиторий Docker---------------------------------
+
+yago@yago-VirtualBox:~$ sudo apt-get updata
+[sudo] пароль для yago: 
+E: Неверная операция updata
+yago@yago-VirtualBox:~$ sudo apt-get update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Пол:2 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]                                        
+Пол:3 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]                                                   
+Пол:4 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]                                                
+Игн:5 https://nginx.org/packages/mainline/debian focal InRelease                                                      
+Ошб:6 https://nginx.org/packages/mainline/debian focal Release                      
+  404  Not Found [IP: 52.58.199.22 443]
+Пол:7 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 DEP-11 Metadata [278 kB]
+Пол:8 http://ru.archive.ubuntu.com/ubuntu focal-updates/universe amd64 DEP-11 Metadata [390 kB]
+Пол:9 http://ru.archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 DEP-11 Metadata [944 B]
+Пол:10 http://ru.archive.ubuntu.com/ubuntu focal-backports/main amd64 DEP-11 Metadata [7 956 B]
+Пол:11 http://ru.archive.ubuntu.com/ubuntu focal-backports/universe amd64 DEP-11 Metadata [30,5 kB]
+Пол:12 http://security.ubuntu.com/ubuntu focal-security/main amd64 DEP-11 Metadata [40,6 kB]
+Пол:13 http://security.ubuntu.com/ubuntu focal-security/universe amd64 DEP-11 Metadata [66,5 kB]
+Пол:14 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 DEP-11 Metadata [2 464 B]
+Чтение списков пакетов… Готово                
+E: Репозиторий «https://nginx.org/packages/mainline/debian focal Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+yago@yago-VirtualBox:~$ sudo apt-get install \
+>     ca-certificates \
+>     curl \
+>     gnupg \
+>     lsb-release
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Уже установлен пакет lsb-release самой новой версии (11.1.0ubuntu2).
+lsb-release помечен как установленный вручную.
+Уже установлен пакет ca-certificates самой новой версии (20211016~20.04.1).
+ca-certificates помечен как установленный вручную.
+Уже установлен пакет gnupg самой новой версии (2.2.19-3ubuntu2.1).
+gnupg помечен как установленный вручную.
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  libfwupdplugin1 libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream nginx-common
+Для их удаления используйте «sudo apt autoremove».
+Следующие НОВЫЕ пакеты будут установлены:
+  curl
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 13 пакетов не обновлено.
+Необходимо скачать 162 kB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 412 kB.
+Хотите продолжить? [Д/н] y
+Пол:1 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 curl amd64 7.68.0-1ubuntu2.11 [162 kB]
+Получено 162 kB за 0с (590 kB/s)
+Выбор ранее не выбранного пакета curl.
+(Чтение базы данных … на данный момент установлено 197057 файлов и каталогов.)
+Подготовка к распаковке …/curl_7.68.0-1ubuntu2.11_amd64.deb …
+Распаковывается curl (7.68.0-1ubuntu2.11) …
+Настраивается пакет curl (7.68.0-1ubuntu2.11) …
+Обрабатываются триггеры для man-db (2.9.1-1) …
+yago@yago-VirtualBox:~$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+gpg: не могу создать '/etc/apt/keyrings/docker.gpg': Нет такого файла или каталога
+gpg: не найдено данных формата OpenPGP.
+gpg: ошибка преобразования из текстового формата: Нет такого файла или каталога
+(23) Failed writing body
+yago@yago-VirtualBox:~$ sudo mkdir -p /etc/apt/keyrings
+yago@yago-VirtualBox:~$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+yago@yago-VirtualBox:~$ echo \
+>   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+>   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+yago@yago-VirtualBox:~$ sudo apt-get updata
+E: Неверная операция updata
+yago@yago-VirtualBox:~$ sudo apt-get update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease                                                                            
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease                                                                          
+Сущ:4 http://security.ubuntu.com/ubuntu focal-security InRelease                                                                             
+Пол:5 https://download.docker.com/linux/ubuntu focal InRelease [57,7 kB]                                                                     
+Игн:6 https://nginx.org/packages/mainline/debian focal InRelease                                                 
+Ошб:7 https://nginx.org/packages/mainline/debian focal Release
+  404  Not Found [IP: 3.125.197.172 443]
+Пол:8 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages [17,6 kB]
+Чтение списков пакетов… Готово        
+E: Репозиторий «https://nginx.org/packages/mainline/debian focal Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+yago@yago-VirtualBox:~$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  bridge-utils libfwupdplugin1 libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream
+  nginx-common ubuntu-fan
+Для их удаления используйте «sudo apt autoremove».
+Будут установлены следующие дополнительные пакеты:
+  docker-ce-rootless-extras docker-scan-plugin slirp4netns
+Предлагаемые пакеты:
+  aufs-tools cgroupfs-mount | cgroup-lite
+Следующие пакеты будут УДАЛЕНЫ:
+  containerd docker.io runc
+Следующие НОВЫЕ пакеты будут установлены:
+  containerd.io docker-ce docker-ce-cli docker-ce-rootless-extras docker-compose-plugin docker-scan-plugin slirp4netns
+Обновлено 0 пакетов, установлено 7 новых пакетов, для удаления отмечено 3 пакетов, и 13 пакетов не обновлено.
+Необходимо скачать 108 MB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 116 MB.
+Хотите продолжить? [Д/н] y
+Пол:1 https://download.docker.com/linux/ubuntu focal/stable amd64 containerd.io amd64 1.6.6-1 [28,1 MB]
+Пол:2 http://ru.archive.ubuntu.com/ubuntu focal/universe amd64 slirp4netns amd64 0.4.3-1 [74,3 kB]
+Пол:3 https://download.docker.com/linux/ubuntu focal/stable amd64 docker-ce-cli amd64 5:20.10.17~3-0~ubuntu-focal [40,6 MB]                  
+Пол:4 https://download.docker.com/linux/ubuntu focal/stable amd64 docker-ce amd64 5:20.10.17~3-0~ubuntu-focal [21,0 MB]                      
+Пол:5 https://download.docker.com/linux/ubuntu focal/stable amd64 docker-ce-rootless-extras amd64 5:20.10.17~3-0~ubuntu-focal [8 171 kB]     
+Пол:6 https://download.docker.com/linux/ubuntu focal/stable amd64 docker-compose-plugin amd64 2.6.0~ubuntu-focal [6 560 kB]                  
+Пол:7 https://download.docker.com/linux/ubuntu focal/stable amd64 docker-scan-plugin amd64 0.17.0~ubuntu-focal [3 521 kB]                    
+Получено 108 MB за 1мин 46с (1 017 kB/s)                                                                                                     
+(Чтение базы данных … на данный момент установлено 197064 файла и каталога.)
+Удаляется docker.io (20.10.12-0ubuntu2~20.04.1) …
+'/usr/share/docker.io/contrib/nuke-graph-directory.sh' -> '/var/lib/docker/nuke-graph-directory.sh'
+Удаляется containerd (1.5.9-0ubuntu1~20.04.4) …
+Удаляется runc (1.1.0-0ubuntu1~20.04.1) …
+Выбор ранее не выбранного пакета containerd.io.
+(Чтение базы данных … на данный момент установлено 196802 файла и каталога.)
+Подготовка к распаковке …/0-containerd.io_1.6.6-1_amd64.deb …
+Распаковывается containerd.io (1.6.6-1) …
+Выбор ранее не выбранного пакета docker-ce-cli.
+Подготовка к распаковке …/1-docker-ce-cli_5%3a20.10.17~3-0~ubuntu-focal_amd64.deb …
+Распаковывается docker-ce-cli (5:20.10.17~3-0~ubuntu-focal) …
+Выбор ранее не выбранного пакета docker-ce.
+Подготовка к распаковке …/2-docker-ce_5%3a20.10.17~3-0~ubuntu-focal_amd64.deb …
+Распаковывается docker-ce (5:20.10.17~3-0~ubuntu-focal) …
+Выбор ранее не выбранного пакета docker-ce-rootless-extras.
+Подготовка к распаковке …/3-docker-ce-rootless-extras_5%3a20.10.17~3-0~ubuntu-focal_amd64.deb …
+Распаковывается docker-ce-rootless-extras (5:20.10.17~3-0~ubuntu-focal) …
+Выбор ранее не выбранного пакета docker-compose-plugin.
+Подготовка к распаковке …/4-docker-compose-plugin_2.6.0~ubuntu-focal_amd64.deb …
+Распаковывается docker-compose-plugin (2.6.0~ubuntu-focal) …
+Выбор ранее не выбранного пакета docker-scan-plugin.
+Подготовка к распаковке …/5-docker-scan-plugin_0.17.0~ubuntu-focal_amd64.deb …
+Распаковывается docker-scan-plugin (0.17.0~ubuntu-focal) …
+Выбор ранее не выбранного пакета slirp4netns.
+Подготовка к распаковке …/6-slirp4netns_0.4.3-1_amd64.deb …
+Распаковывается slirp4netns (0.4.3-1) …
+Настраивается пакет slirp4netns (0.4.3-1) …
+Настраивается пакет docker-scan-plugin (0.17.0~ubuntu-focal) …
+Настраивается пакет containerd.io (1.6.6-1) …
+Настраивается пакет docker-compose-plugin (2.6.0~ubuntu-focal) …
+Настраивается пакет docker-ce-cli (5:20.10.17~3-0~ubuntu-focal) …
+Настраивается пакет docker-ce-rootless-extras (5:20.10.17~3-0~ubuntu-focal) …
+Настраивается пакет docker-ce (5:20.10.17~3-0~ubuntu-focal) …
+Обрабатываются триггеры для man-db (2.9.1-1) …
+Обрабатываются триггеры для systemd (245.4-4ubuntu3.17) …
+yago@yago-VirtualBox:~$ docker -v
+Docker version 20.10.17, build 100c701
+yago@yago-VirtualBox:~$ 
+
+2--------------------Запустить контейнер с Ubuntu.------------------
+
+yago@yago-VirtualBox:~$ docker ps -a
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json?all=1": dial unix /var/run/docker.sock: connect: permission denied
+yago@yago-VirtualBox:~$ sudo docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+9afc4ad63257   hello-world   "/hello"   45 minutes ago   Exited (0) 45 minutes ago             suspicious_lichterman
+af9549f71bf8   hello-world   "/hello"   46 minutes ago   Exited (0) 46 minutes ago             gifted_lovelace
+yago@yago-VirtualBox:~$ sudo docker run ubuntu
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+405f018f9d1d: Pull complete 
+Digest: sha256:b6b83d3c331794420340093eb706a6f152d9c1fa51b262d9bf34594887c2c7ac
+Status: Downloaded newer image for ubuntu:latest
+yago@yago-VirtualBox:~$ sudo docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+a53d3955e4db   ubuntu        "bash"     39 seconds ago   Exited (0) 37 seconds ago             suspicious_brattain
+9afc4ad63257   hello-world   "/hello"   48 minutes ago   Exited (0) 48 minutes ago             suspicious_lichterman
+af9549f71bf8   hello-world   "/hello"   48 minutes ago   Exited (0) 48 minutes ago             gifted_lovelace
+yago@yago-VirtualBox:~$ 
+

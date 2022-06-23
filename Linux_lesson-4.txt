@@ -1,0 +1,191 @@
+yago@yago-VirtualBox:~$ mkdir -p lesson-4
+yago@yago-VirtualBox:~$ cd lesson-4
+yago@yago-VirtualBox:~/lesson-4$ echo homework4 > L4
+yago@yago-VirtualBox:~/lesson-4$ ll
+итого 12
+drwxrwxr-x  2 yago yago 4096 июн  6 13:49 ./
+drwxr-xr-x 18 yago yago 4096 июн  6 12:42 ../
+-rw-rw-r--  1 yago yago   10 июн  6 13:49 L4
+yago@yago-VirtualBox:~/lesson-4$ more L4 
+homework4
+yago@yago-VirtualBox:~/lesson-4$ cat L4
+homework4
+yago@yago-VirtualBox:~/lesson-4$ echo l1 l2 l3
+l1 l2 l3
+yago@yago-VirtualBox:~/lesson-4$ cat l1 l2 l3 L4 > Work
+cat: l1: Нет такого файла или каталога
+cat: l2: Нет такого файла или каталога
+cat: l3: Нет такого файла или каталога
+yago@yago-VirtualBox:~/lesson-4$ ll
+итого 16
+drwxrwxr-x  2 yago yago 4096 июн  6 14:06 ./
+drwxr-xr-x 18 yago yago 4096 июн  6 13:59 ../
+-rw-rw-r--  1 yago yago   10 июн  6 13:49 L4
+-rw-rw-r--  1 yago yago   10 июн  6 14:06 Work
+yago@yago-VirtualBox:~/lesson-4$ cat Work
+homework4
+yago@yago-VirtualBox:~/lesson-4$ cat L4
+homework4
+yago@yago-VirtualBox:~/lesson-4$ cat Work L4
+homework4
+homework4
+yago@yago-VirtualBox:~/lesson-4$ cat Work L4 > summary
+yago@yago-VirtualBox:~/lesson-4$ ll
+итого 20
+drwxrwxr-x  2 yago yago 4096 июн  6 14:10 ./
+drwxr-xr-x 18 yago yago 4096 июн  6 13:59 ../
+-rw-rw-r--  1 yago yago   10 июн  6 13:49 L4
+-rw-rw-r--  1 yago yago   20 июн  6 14:10 summary
+-rw-rw-r--  1 yago yago   10 июн  6 14:06 Work
+yago@yago-VirtualBox:~/lesson-4$ cat summary 
+homework4
+homework4
+yago@yago-VirtualBox:~/lesson-4$ cat > content.txt
+line-1
+line-2
+yago@yago-VirtualBox:~/lesson-4$ ll
+итого 24
+drwxrwxr-x  2 yago yago 4096 июн  6 14:11 ./
+drwxr-xr-x 18 yago yago 4096 июн  6 13:59 ../
+-rw-rw-r--  1 yago yago   14 июн  6 14:12 content.txt
+-rw-rw-r--  1 yago yago   10 июн  6 13:49 L4
+-rw-rw-r--  1 yago yago   20 июн  6 14:10 summary
+-rw-rw-r--  1 yago yago   10 июн  6 14:06 Work
+yago@yago-VirtualBox:~/lesson-4$ cat content.txt 
+line-1
+line-2
+yago@yago-VirtualBox:~/lesson-4$ wc ~/content.txt
+wc: /home/yago/content.txt: Нет такого файла или каталога
+yago@yago-VirtualBox:~/lesson-4$ wc /content.txt
+wc: /content.txt: Нет такого файла или каталога
+yago@yago-VirtualBox:~/lesson-4$ wc content.txt
+ 2  2 14 content.txt
+yago@yago-VirtualBox:~/lesson-4$ ls |wc -w
+4
+yago@yago-VirtualBox:~/lesson-4$ 
+yago@yago-VirtualBox:~/lesson-4$ #2---------------------------
+yago@yago-VirtualBox:~/lesson-4$ cat content.txt |grep -o 'n' |wc -l
+2
+yago@yago-VirtualBox:~/lesson-4$ find / -name *.py -type f 1> scripts.txt 2> error.txt
+
+yago@yago-VirtualBox:~/lesson-4$ 
+yago@yago-VirtualBox:~/lesson-4$ find / -name *.py -type f 1> scripts.txt 2> error.txt
+llyago@yago-VirtualBox:~/lesson-4$ ll
+итого 680
+drwxrwxr-x  2 yago yago   4096 июн  6 14:41 ./
+drwxr-xr-x 18 yago yago   4096 июн  6 13:59 ../
+-rw-rw-r--  1 yago yago     14 июн  6 14:12 content.txt
+-rw-rw-r--  1 yago yago  78374 июн  6 14:43 error.txt
+-rw-rw-r--  1 yago yago     10 июн  6 13:49 L4
+-rw-rw-r--  1 yago yago 587628 июн  6 14:43 scripts.txt
+-rw-rw-r--  1 yago yago     20 июн  6 14:10 summary
+-rw-rw-r--  1 yago yago     10 июн  6 14:06 Work
+yago@yago-VirtualBox:~/lesson-4$ head scripts.txt 
+/etc/python3.8/sitecustomize.py
+/snap/gnome-3-38-2004/106/usr/lib/python3/dist-packages/cairo/__init__.py
+/snap/gnome-3-38-2004/106/usr/lib/python3/dist-packages/dbus/__init__.py
+/snap/gnome-3-38-2004/106/usr/lib/python3/dist-packages/dbus/_compat.py
+/snap/gnome-3-38-2004/106/usr/lib/python3/dist-packages/dbus/_dbus.py
+/snap/gnome-3-38-2004/106/usr/lib/python3/dist-packages/dbus/_expat_introspect_parser.py
+/snap/gnome-3-38-2004/106/usr/lib/python3/dist-packages/dbus/bus.py
+/snap/gnome-3-38-2004/106/usr/lib/python3/dist-packages/dbus/connection.py
+/snap/gnome-3-38-2004/106/usr/lib/python3/dist-packages/dbus/decorators.py
+/snap/gnome-3-38-2004/106/usr/lib/python3/dist-packages/dbus/exceptions.py
+yago@yago-VirtualBox:~/lesson-4$ head error.txt 
+find: ‘/boot/efi’: Отказано в доступе
+find: ‘/root’: Отказано в доступе
+find: ‘/sys/kernel/tracing’: Отказано в доступе
+find: ‘/sys/kernel/debug’: Отказано в доступе
+find: ‘/sys/fs/pstore’: Отказано в доступе
+find: ‘/sys/fs/bpf’: Отказано в доступе
+find: ‘/etc/ssl/private’: Отказано в доступе
+find: ‘/etc/cups/ssl’: Отказано в доступе
+find: ‘/etc/polkit-1/localauthority’: Отказано в доступе
+find: ‘/snap/core20/1494/etc/ssl/private’: Отказано в доступе
+yago@yago-VirtualBox:~/lesson-4$ ls -la /ect | cut -c 1-10 | sort | uniq
+ls: невозможно получить доступ к '/ect': Нет такого файла или каталога
+yago@yago-VirtualBox:~/lesson-4$ ls -la /etc | cut -c 1-10 | sort | unoq
+
+Команда «unoq» не найдена. Возможно, вы имели в виду:
+
+  command 'uniq' from deb coreutils (8.30-3ubuntu2)
+
+Try: sudo apt install <deb name>
+
+yago@yago-VirtualBox:~/lesson-4$ ls -la /etc | cut -c 1-10 | sort | uniq
+drwxr-s---
+drwxr-xr-x
+lrwxrwxrwx
+-r--r-----
+-r--r--r--
+-rw-------
+-rw-r-----
+-rw-r--r--
+-rw-rw-r--
+итого
+yago@yago-VirtualBox:~/lesson-4$ #3 ------------------------
+yago@yago-VirtualBox:~/lesson-4$ 
+yago@yago-VirtualBox:~/lesson-4$ sudo nano /etc/ssh/sshd_config
+[sudo] пароль для yago: 
+yago@yago-VirtualBox:~/lesson-4$ sudo systemctl restart sshd
+yago@yago-VirtualBox:~/lesson-4$ sudo systemctl status sshd
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2022-06-06 15:28:20 MSK; 1min 39s ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 16858 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 16860 (sshd)
+      Tasks: 1 (limit: 2289)
+     Memory: 1.4M
+     CGroup: /system.slice/ssh.service
+             └─16860 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+
+июн 06 15:28:20 yago-VirtualBox systemd[1]: Starting OpenBSD Secure Shell server...
+июн 06 15:28:20 yago-VirtualBox sshd[16860]: Server listening on 0.0.0.0 port 22.
+июн 06 15:28:20 yago-VirtualBox sshd[16860]: Server listening on :: port 22.
+июн 06 15:28:20 yago-VirtualBox systemd[1]: Started OpenBSD Secure Shell server.
+yago@yago-VirtualBox:~/lesson-4$ sudo nano /etc/ssh/sshd_config
+yago@yago-VirtualBox:~/lesson-4$ sudo systemctl reload sshd
+yago@yago-VirtualBox:~/lesson-4$ sudo systemctl status sshd
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2022-06-06 15:28:20 MSK; 7min ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 16858 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+    Process: 16877 ExecReload=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+    Process: 16878 ExecReload=/bin/kill -HUP $MAINPID (code=exited, status=0/SUCCESS)
+   Main PID: 16860 (sshd)
+      Tasks: 1 (limit: 2289)
+     Memory: 1.5M
+     CGroup: /system.slice/ssh.service
+             └─16860 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+
+июн 06 15:28:20 yago-VirtualBox systemd[1]: Starting OpenBSD Secure Shell server...
+июн 06 15:28:20 yago-VirtualBox sshd[16860]: Server listening on 0.0.0.0 port 22.
+июн 06 15:28:20 yago-VirtualBox sshd[16860]: Server listening on :: port 22.
+июн 06 15:28:20 yago-VirtualBox systemd[1]: Started OpenBSD Secure Shell server.
+июн 06 15:35:45 yago-VirtualBox systemd[1]: Reloading OpenBSD Secure Shell server.
+июн 06 15:35:45 yago-VirtualBox sshd[16860]: Received SIGHUP; restarting.
+июн 06 15:35:45 yago-VirtualBox systemd[1]: Reloaded OpenBSD Secure Shell server.
+июн 06 15:35:45 yago-VirtualBox sshd[16860]: Server listening on 0.0.0.0 port 22.
+июн 06 15:35:45 yago-VirtualBox sshd[16860]: Server listening on :: port 22.
+yago@yago-VirtualBox:~/lesson-4$ # при рестарте PID номер меняется, пр релоде не меняется, обе команды перечитывают файл
+yago@yago-VirtualBox:~/lesson-4$ 
+yago@yago-VirtualBox:~/lesson-4$ cat > file-name
+text1
+text2
+yago@yago-VirtualBox:~/lesson-4$ # ctrl+D окончания файла тем самы завешаем работу команды CAT
+yago@yago-VirtualBox:~/lesson-4$ 
+yago@yago-VirtualBox:~/lesson-4$ ps -aux |grep mc
+yago        5151  0.0  0.2 163104  5580 ?        Sl   05:49   0:00 /usr/libexec/ibus-memconf
+yago       16940  0.0  0.0   9072   716 pts/0    S+   15:57   0:00 grep --color=auto mc
+yago@yago-VirtualBox:~/lesson-4$ ps -aux |grep mc
+yago        5151  0.0  0.2 163104  5580 ?        Sl   05:49   0:00 /usr/libexec/ibus-memconf
+yago       16955  0.6  0.4  23032 10012 pts/1    S+   16:00   0:00 mc
+yago       16964  0.0  0.0   9072   648 pts/0    S+   16:00   0:00 grep --color=auto mc
+yago@yago-VirtualBox:~/lesson-4$ sudo kill -9 16955
+[sudo] пароль для yago: 
+yago@yago-VirtualBox:~/lesson-4$ 
+

@@ -1,0 +1,71 @@
+yago@yago-VirtualBox:~$ pwd
+/home/yago
+yago@yago-VirtualBox:~$ mkdir lesson-2
+yago@yago-VirtualBox:~$ pwd
+/home/yago
+yago@yago-VirtualBox:~$ cd lesson-2/
+yago@yago-VirtualBox:~/lesson-2$ rm students mentors
+rm: невозможно удалить 'students': Нет такого файла или каталога
+rm: невозможно удалить 'mentors': Нет такого файла или каталога
+yago@yago-VirtualBox:~/lesson-2$ mkdir students mentors
+yago@yago-VirtualBox:~/lesson-2$ tree
+.
+├── mentors
+└── students
+
+2 directories, 0 files
+yago@yago-VirtualBox:~/lesson-2$ cd students/
+yago@yago-VirtualBox:~/lesson-2/students$ touch students_list.txt
+yago@yago-VirtualBox:~/lesson-2/students$ nano students_list.txt 
+yago@yago-VirtualBox:~/lesson-2/students$ cd ../
+yago@yago-VirtualBox:~/lesson-2$ cd mentors/
+yago@yago-VirtualBox:~/lesson-2/mentors$ touch mentors_list.txt
+yago@yago-VirtualBox:~/lesson-2/mentors$ nano mentors_list.txt 
+yago@yago-VirtualBox:~/lesson-2/mentors$ tree
+.
+└── mentors_list.txt
+
+0 directories, 1 file
+yago@yago-VirtualBox:~/lesson-2/mentors$ cd ../
+yago@yago-VirtualBox:~/lesson-2$ tree
+.
+├── mentors
+│   └── mentors_list.txt
+└── students
+    └── students_list.txt
+
+2 directories, 2 files
+yago@yago-VirtualBox:~/lesson-2$  mv mentors/mentors_list.txt students/
+yago@yago-VirtualBox:~/lesson-2$ tree
+.
+├── mentors
+└── students
+    ├── mentors_list.txt
+    └── students_list.txt
+
+2 directories, 2 files
+yago@yago-VirtualBox:~/lesson-2$ rm mentors
+rm: невозможно удалить 'mentors': Это каталог
+yago@yago-VirtualBox:~/lesson-2$ rmdir mentors
+yago@yago-VirtualBox:~/lesson-2$ tree
+.
+└── students
+    ├── mentors_list.txt
+    └── students_list.txt
+
+1 directory, 2 files
+yago@yago-VirtualBox:~/lesson-2$ mv ~/lesson-2/students ~/lesson-2/students_and_mentors
+yago@yago-VirtualBox:~/lesson-2$ tree
+.
+└── students_and_mentors
+    ├── mentors_list.txt
+    └── students_list.txt
+
+1 directory, 2 files
+yago@yago-VirtualBox:~/lesson-2$ rm students_and_mentors -r
+yago@yago-VirtualBox:~/lesson-2$ tree
+.
+
+0 directories, 0 files
+yago@yago-VirtualBox:~/lesson-2$ 
+

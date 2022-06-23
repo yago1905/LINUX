@@ -1,0 +1,117 @@
+yago@yago-VirtualBox:~$ sudo adduser user1
+[sudo] пароль для yago: 
+Добавляется пользователь «user1» ...
+Добавляется новая группа «user1» (1001) ...
+Добавляется новый пользователь «user1» (1001) в группу «user1» ...
+Создаётся домашний каталог «/home/user1» ...
+Копирование файлов из «/etc/skel» ...
+Новый пароль : 
+Повторите ввод нового пароля : 
+passwd: пароль успешно обновлён
+Изменение информации о пользователе user1
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+	Полное имя []: 
+	Номер комнаты []: 
+	Рабочий телефон []: 
+	Домашний телефон []: 
+	Другое []: 
+Данная информация корректна? [Y/n] y
+yago@yago-VirtualBox:~$ ls /home
+user1  yago
+yago@yago-VirtualBox:~$ sudo userdel user1
+yago@yago-VirtualBox:~$ ls /home
+user1  yago
+yago@yago-VirtualBox:~$ sudo su whoami
+su: пользователь whoami не существует
+yago@yago-VirtualBox:~$ whoami
+yago
+yago@yago-VirtualBox:~$ su user1
+su: пользователь user1 не существует
+yago@yago-VirtualBox:~$ tail /etc/passwd
+colord:x:121:126:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+geoclue:x:122:127::/var/lib/geoclue:/usr/sbin/nologin
+pulse:x:123:128:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
+gnome-initial-setup:x:124:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:125:130:Gnome Display Manager:/var/lib/gdm3:/bin/false
+sssd:x:126:131:SSSD system user,,,:/var/lib/sss:/usr/sbin/nologin
+yago:x:1000:1000:yago,,,:/home/yago:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+vboxadd:x:998:1::/var/run/vboxadd:/bin/false
+sshd:x:127:65534::/run/sshd:/usr/sbin/nologin
+yago@yago-VirtualBox:~$ 
+yago@yago-VirtualBox:~$ #2 Управление группами
+yago@yago-VirtualBox:~$ sudo groupadd dev_team
+yago@yago-VirtualBox:~$ tail /etc/group
+pulse:x:128:
+pulse-access:x:129:
+gdm:x:130:
+sssd:x:131:
+lxd:x:132:yago
+yago:x:1000:
+sambashare:x:133:yago
+systemd-coredump:x:999:
+vboxsf:x:998:yago
+dev_team:x:1001:
+yago@yago-VirtualBox:~$ sudo adduser user22
+Добавляется пользователь «user22» ...
+Добавляется новая группа «user22» (1002) ...
+Добавляется новый пользователь «user22» (1001) в группу «user22» ...
+Создаётся домашний каталог «/home/user22» ...
+Копирование файлов из «/etc/skel» ...
+Новый пароль : 
+Повторите ввод нового пароля : 
+passwd: пароль успешно обновлён
+Изменение информации о пользователе user22
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+	Полное имя []: 
+	Номер комнаты []: 
+	Рабочий телефон []: 
+	Домашний телефон []: 
+	Другое []: 
+Данная информация корректна? [Y/n] y
+yago@yago-VirtualBox:~$ sudo usermod -aG dev_team user22
+yago@yago-VirtualBox:~$ tail /etc/group
+pulse-access:x:129:
+gdm:x:130:
+sssd:x:131:
+lxd:x:132:yago
+yago:x:1000:
+sambashare:x:133:yago
+systemd-coredump:x:999:
+vboxsf:x:998:yago
+dev_team:x:1001:user22
+user22:x:1002:
+yago@yago-VirtualBox:~$ sudo deluser user22 dev_team
+Удаляется пользователь «user22» из группы «dev_team» ...
+Готово.
+yago@yago-VirtualBox:~$ 
+yago@yago-VirtualBox:~$ #3 Создать пользователя с правами суперпользователя. Проверить результат.
+yago@yago-VirtualBox:~$ sudo usermod -a -G sudo user55
+usermod: пользователь «user55» не существует
+yago@yago-VirtualBox:~$ sudo adduser user55
+Добавляется пользователь «user55» ...
+Добавляется новая группа «user55» (1003) ...
+Добавляется новый пользователь «user55» (1002) в группу «user55» ...
+Создаётся домашний каталог «/home/user55» ...
+Копирование файлов из «/etc/skel» ...
+Новый пароль : 
+Повторите ввод нового пароля : 
+passwd: пароль успешно обновлён
+Изменение информации о пользователе user55
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+	Полное имя []: 
+	Номер комнаты []: 
+	Рабочий телефон []: 
+	Домашний телефон []: 
+	Другое []: 
+Данная информация корректна? [Y/n] y
+yago@yago-VirtualBox:~$ sudo usermod -a -G sudo user55
+yago@yago-VirtualBox:~$ groups user55
+user55 : user55 sudo
+yago@yago-VirtualBox:~$ su user55
+Пароль: 
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+user55@yago-VirtualBox:/home/yago$ 
+
