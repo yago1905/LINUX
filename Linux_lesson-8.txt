@@ -1,7 +1,7 @@
 ----------------------------1 Подключить репозиторий Docker---------------------------------
 
 yago@yago-VirtualBox:~$ sudo apt-get updata
-[sudo] пароль для yago: 
+[sudo] пароль для yago:
 E: Неверная операция updata
 yago@yago-VirtualBox:~$ sudo apt-get update
 Сущ:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease
