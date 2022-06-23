@@ -67,5 +67,5 @@ yago@yago-VirtualBox:~/lesson-2$ tree
 .
 
 0 directories, 0 files
-yago@yago-VirtualBox:~/lesson-2$ 
+yago@yago-VirtualBox:~/lesson-2$
 
