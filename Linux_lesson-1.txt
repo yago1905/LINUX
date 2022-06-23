@@ -12,4 +12,4 @@ yago@yago-VirtualBox:~$ hostnamectl
   Operating System: Ubuntu 20.04.4 LTS
             Kernel: Linux 5.13.0-41-generic
       Architecture: x86-64
-yago@yago-VirtualBox:~$ 
+yago@yago-VirtualBox:~$
