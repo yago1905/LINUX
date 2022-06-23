@@ -64,6 +64,9 @@ yago@yago-VirtualBox:~/lesson-4$ ls |wc -w
 4
 yago@yago-VirtualBox:~/lesson-4$ 
 yago@yago-VirtualBox:~/lesson-4$ #2---------------------------
+
+# Конвейер (pipeline). Использовать команду cut на вывод длинного списка каталога, чтобы отобразить только права доступа к файлам. Затем отправить в конвейере этот вывод на sort и uniq, чтобы отфильтровать все повторяющиеся строки.
+
 yago@yago-VirtualBox:~/lesson-4$ cat content.txt |grep -o 'n' |wc -l
 2
 yago@yago-VirtualBox:~/lesson-4$ find / -name *.py -type f 1> scripts.txt 2> error.txt
@@ -124,6 +127,9 @@ lrwxrwxrwx
 -rw-rw-r--
 итого
 yago@yago-VirtualBox:~/lesson-4$ #3 ------------------------
+
+# Управление процессами.) Изменить конфигурационный файл службы SSH: /etc/ssh/sshd_config, отключив аутентификацию по паролю PasswordAuthentication no. Выполните рестарт службы systemctl restart sshd (service sshd restart), верните аутентификацию по паролю, выполните reload службы systemctl reload sshd (services sshd reload). В чём различие между действиями restart и reload? Создайте файл при помощи команды cat > file_name, напишите текст и завершите комбинацией ctrl+d. Какой сигнал передадим процессу?
+
 yago@yago-VirtualBox:~/lesson-4$ 
 yago@yago-VirtualBox:~/lesson-4$ sudo nano /etc/ssh/sshd_config
 [sudo] пароль для yago: 
