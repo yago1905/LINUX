@@ -96,5 +96,5 @@ yago@yago-VirtualBox:~/lesson6/backup$ ll
 drwxrwxr-x   3 yago yago  4096 июн 17 11:52 ./
 drwxrwxr-x   3 yago yago  4096 июн 17 11:45 ../
 drwxr-xr-x 132 yago yago 12288 июн 17 10:00 etc/
-yago@yago-VirtualBox:~/lesson6/backup$ 
+yago@yago-VirtualBox:~/lesson6/backup$
 
