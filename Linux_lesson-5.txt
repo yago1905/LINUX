@@ -54,7 +54,7 @@ yago@yago-VirtualBox:~/lesson5$ # не можем прочитать
 yago@yago-VirtualBox:~/lesson5$ cat file4
 home work
 yago@yago-VirtualBox:~/lesson5$ 
-yago@yago-VirtualBox:~/lesson5$ # 2-------------------------------
+yago@yago-VirtualBox:~/lesson5$ # 2------------------------------
 yago@yago-VirtualBox:~/lesson5$ 
 yago@yago-VirtualBox:~/lesson5$ ll
 итого 16
